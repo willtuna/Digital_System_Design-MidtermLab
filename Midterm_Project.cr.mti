@@ -1,0 +1,222 @@
+C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_BCD.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_BCD.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module UniversalBCD
+-- Compiling module test_BCD
+
+Top level modules:
+	test_BCD
+
+} {} {}} C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v {2 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Keypad_Top
+-- Compiling module Freq_Keypad
+-- Compiling module Keypad
+-- Compiling module Keypad_Encoder
+-- Compiling module UniversalBCD
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(46): (vlog-2275) 'Keypad_Top' already exists and will be overwritten.
+
+-- Compiling module Keypad_Top
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(67): (vlog-2275) 'Freq_Keypad' already exists and will be overwritten.
+
+-- Compiling module Freq_Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(100): (vlog-2275) 'Keypad' already exists and will be overwritten.
+
+-- Compiling module Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(176): (vlog-2275) 'Keypad_Encoder' already exists and will be overwritten.
+
+-- Compiling module Keypad_Encoder
+-- Compiling module calculation
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(46): (vlog-2275) 'Keypad_Top' already exists and will be overwritten.
+
+-- Compiling module Keypad_Top
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(67): (vlog-2275) 'Freq_Keypad' already exists and will be overwritten.
+
+-- Compiling module Freq_Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(100): (vlog-2275) 'Keypad' already exists and will be overwritten.
+
+-- Compiling module Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v(1)
+** while parsing file included at Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(176): (vlog-2275) 'Keypad_Encoder' already exists and will be overwritten.
+
+-- Compiling module Keypad_Encoder
+-- Compiling module Calculator_fsm
+-- Compiling module Display
+-- Compiling module seven_seg_decoder
+-- Compiling module frequency400
+-- Compiling module display_4bit
+-- Compiling module Counter_default4
+-- Compiling module DFF
+-- Compiling module Midterm_Lab_Top
+-- Compiling module Test_Top
+
+Top level modules:
+	Test_Top
+
+} {} {}} C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_keypad.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_keypad.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Keypad_Top
+-- Compiling module Freq_Keypad
+-- Compiling module Keypad
+-- Compiling module Keypad_Encoder
+-- Compiling module Test_keypad
+
+Top level modules:
+	Test_keypad
+
+} {} {}} C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v {2 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module UniversalBCD
+-- Compiling module Keypad_Top
+-- Compiling module Freq_Keypad
+-- Compiling module Keypad
+-- Compiling module Keypad_Encoder
+-- Compiling module calculation
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v(1)
+** while parsing file included at fsm.v(3)
+** at keypad.v(46): (vlog-2275) 'Keypad_Top' already exists and will be overwritten.
+
+-- Compiling module Keypad_Top
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v(1)
+** while parsing file included at fsm.v(3)
+** at keypad.v(67): (vlog-2275) 'Freq_Keypad' already exists and will be overwritten.
+
+-- Compiling module Freq_Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v(1)
+** while parsing file included at fsm.v(3)
+** at keypad.v(100): (vlog-2275) 'Keypad' already exists and will be overwritten.
+
+-- Compiling module Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v(1)
+** while parsing file included at fsm.v(3)
+** at keypad.v(176): (vlog-2275) 'Keypad_Encoder' already exists and will be overwritten.
+
+-- Compiling module Keypad_Encoder
+-- Compiling module Calculator_fsm
+-- Compiling module test_fsm
+
+Top level modules:
+	Keypad_Top
+	test_fsm
+
+} {} {}} C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v {2 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Keypad_Top
+-- Compiling module Freq_Keypad
+-- Compiling module Keypad
+-- Compiling module Keypad_Encoder
+-- Compiling module UniversalBCD
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(46): (vlog-2275) 'Keypad_Top' already exists and will be overwritten.
+
+-- Compiling module Keypad_Top
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(67): (vlog-2275) 'Freq_Keypad' already exists and will be overwritten.
+
+-- Compiling module Freq_Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(100): (vlog-2275) 'Keypad' already exists and will be overwritten.
+
+-- Compiling module Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(2)
+** while parsing file included at calculation.v(1)
+** at keypad.v(176): (vlog-2275) 'Keypad_Encoder' already exists and will be overwritten.
+
+-- Compiling module Keypad_Encoder
+-- Compiling module calculation
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(46): (vlog-2275) 'Keypad_Top' already exists and will be overwritten.
+
+-- Compiling module Keypad_Top
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(67): (vlog-2275) 'Freq_Keypad' already exists and will be overwritten.
+
+-- Compiling module Freq_Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(100): (vlog-2275) 'Keypad' already exists and will be overwritten.
+
+-- Compiling module Keypad
+** Warning: ** while parsing file included at C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/Midterm_Lab_Top.v(2)
+** while parsing file included at fsm.v(3)
+** at keypad.v(176): (vlog-2275) 'Keypad_Encoder' already exists and will be overwritten.
+
+-- Compiling module Keypad_Encoder
+-- Compiling module Calculator_fsm
+-- Compiling module Display
+-- Compiling module seven_seg_decoder
+-- Compiling module frequency400
+-- Compiling module display_4bit
+-- Compiling module Counter_default4
+-- Compiling module DFF
+-- Compiling module Midterm_Lab_Top
+
+Top level modules:
+	Midterm_Lab_Top
+
+} {} {}} C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/keypad.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/keypad.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Keypad_Top
+-- Compiling module Freq_Keypad
+-- Compiling module Keypad
+-- Compiling module Keypad_Encoder
+
+Top level modules:
+	Keypad_Top
+
+} {} {}} C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/TestDisplay.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/TestDisplay.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Display
+-- Compiling module seven_seg_decoder
+-- Compiling module frequency400
+-- Compiling module display_4bit
+-- Compiling module Counter_default4
+-- Compiling module DFF
+-- Compiling module TestDisplay
+
+Top level modules:
+	TestDisplay
+
+} {} {}} C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/UniversalBCD.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/UniversalBCD.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module UniversalBCD
+
+Top level modules:
+	UniversalBCD
+
+} {} {}}
