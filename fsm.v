@@ -1,3 +1,6 @@
+`ifndef _fsm_v
+`define _fsm_v
+
 `include "UniversalBCD.v"
 `include "calculation.v"
 `include "keypad.v"
@@ -154,4 +157,4 @@ end
 endmodule
 
 
-
+`endif

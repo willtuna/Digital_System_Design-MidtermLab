@@ -1,3 +1,5 @@
+`ifndef _UniversalBCD_v
+`define _UniversalBCD_v
 module UniversalBCD(in,out);
 		 // up to 9999
 		 // Default is 4 digit
@@ -35,3 +37,4 @@ module UniversalBCD(in,out);
 		end
 
 endmodule
+`endif

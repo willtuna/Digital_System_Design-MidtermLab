@@ -9,47 +9,47 @@ z2
 cModel Technology
 dC:/Users/user/Desktop/DigitalSystemLab/Lab03
 vcalculation
-Z0 !s110 1461778778
+Z0 !s110 1462007314
 !i10b 1
-!s100 jf@2oPQ6C6WR:YnG2E2?z0
-Iacc7UDYcAIaELk]QZ=L611
+!s100 lT0Nd1kT=nYO?4^`jSlM70
+IJ=IFT8@@KBG[fG0_CB?nU2
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/user/Desktop/DigitalSystemLab/LabMidterm
-w1461763816
-8calculation.v
-Fcalculation.v
-L0 2
-Z3 OP;L;10.4a;61
+Z3 w1462007269
+Z4 8Midterm_All.v
+Z5 FMidterm_All.v
+L0 540
+Z6 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z4 !s108 1461778778.000000
-Z5 !s107 keypad.v|calculation.v|UniversalBCD.v|fsm.v|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v|
-Z6 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v|
+Z7 !s108 1462007314.000000
+Z8 !s107 Midterm_All.v|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v|
 !s101 -O0
 !i113 1
-Z7 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+Z10 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
 vCalculator_fsm
 R0
 !i10b 1
-!s100 [2Lc:?YWJFi5fGo19Y3DP1
-I:DklC6i3J2X6B@oNTb74X3
+!s100 o70zjgHBN`@VTlGJU?ldb3
+IbD3`i:K:^LNG[3j?OIM3A0
 R1
 R2
-w1461778666
-8fsm.v
-Ffsm.v
-L0 14
 R3
+R4
+R5
+L0 238
+R6
 r1
 !s85 0
 31
-R4
-R5
-R6
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@calculator_fsm
 vColumn_Row_Shifter
 !s110 1461601025
@@ -58,11 +58,11 @@ vColumn_Row_Shifter
 IV`Un`glYaZBcN96BzP<9H2
 R1
 R2
-Z8 w1461548616
+w1461548616
 8Column_Row_Shifter.v
 FColumn_Row_Shifter.v
-Z9 L0 100
-R3
+L0 100
+R6
 r1
 !s85 0
 31
@@ -71,247 +71,247 @@ r1
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/fsm.v|
 !s101 -O0
 !i113 1
-R7
+R10
 n@column_@row_@shifter
 vCounter_default4
-Z10 !s110 1461778777
+R0
 !i10b 1
-!s100 82`5UkR?ClfT]z1]II6mT0
-IKM;6CI<WjSKoBNP?^l;gb1
+!s100 >mb6nD8TRfR;lccg0F;FT0
+IY6^G:_A[Rj_WcZzRC:RPY3
 R1
 R2
-R8
-Z11 8Display.v
-Z12 FDisplay.v
-L0 128
 R3
+R4
+R5
+L0 509
+R6
 r1
 !s85 0
 31
-Z13 !s108 1461778777.000000
-Z14 !s107 Display.v|calculation.v|UniversalBCD.v|fsm.v|keypad.v|Midterm_Lab_Top.v|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v|
-Z15 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v|
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@counter_default4
 vDFF
-R10
+R0
 !i10b 1
-!s100 <SDn68A61GI<M<0Qnj=f63
-Ieee_4H_lSGFPn=[W0z3CI0
+!s100 Vb[WY`^@DmoE5]ZRPJgmF3
+I0`e]E1cCWjmf>C0`ROKSW0
 R1
 R2
-R8
-R11
-R12
-L0 139
 R3
+R4
+R5
+L0 520
+R6
 r1
 !s85 0
 31
-R13
-R14
-R15
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@d@f@f
 vDisplay
-R10
+R0
 !i10b 1
-!s100 LLEMj5XG;:P_[53Y4RDCF3
-IMfm?oiQ`F6ZkgAPDfmB^T3
+!s100 JPTjbzVhohHQOn`VRK56L0
+IQbMWIz?4_]C?O8948mhkb0
 R1
 R2
-R8
-R11
-R12
-L0 1
 R3
+R4
+R5
+L0 381
+R6
 r1
 !s85 0
 31
-R13
-R14
-R15
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@display
 vdisplay_4bit
-R10
+R0
 !i10b 1
-!s100 5TPo2M<_9408QmTg96Jfc3
-IH`b0VE7Y>MR:6:k@[HRCZ1
+!s100 aICLkR<A14XJH;F0X<W723
+IldjEQFVX_4MjD2ZF]j;g;1
 R1
 R2
-R8
-R11
-R12
-L0 101
 R3
+R4
+R5
+L0 482
+R6
 r1
 !s85 0
 31
-R13
-R14
-R15
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 vFreq_Keypad
 R0
 !i10b 1
-!s100 2SWHL9d_CgjKjJTK2[kd?2
-I>ZYGmmo8H6hdX]Ok1T7dS2
+!s100 Zg`da>igE1P^9KEfTMI;[3
+I:42ie7SDAG2HAG<QKaJ]B2
 R1
 R2
-Z16 w1461742869
-Z17 8C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/keypad.v
-Z18 FC:/Users/user/Desktop/DigitalSystemLab/LabMidterm/keypad.v
-L0 67
 R3
+R4
+R5
+L0 90
+R6
 r1
 !s85 0
 31
-R4
-Z19 !s107 C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/keypad.v|
-Z20 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/keypad.v|
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@freq_@keypad
 vfrequency400
-R10
+R0
 !i10b 1
-!s100 fdSKS@D>n=Nd:1ELHMPXa1
-IA=5SIa>V7<^V]gozA6Jjk3
+!s100 <0CGT03Q<88Y9O19TPBYo2
+Ikf4GhQXXZMN[^2fP]ESc43
 R1
 R2
-R8
-R11
-R12
-L0 64
 R3
+R4
+R5
+L0 444
+R6
 r1
 !s85 0
 31
-R13
-R14
-R15
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 vKeypad
 R0
 !i10b 1
-!s100 bL;QDeiTF2FdHMDFY<5f?3
-I10jo@=4>?0>Fj_:99cXz>3
+!s100 lzMSHkiM[3XWe[gn5IB<U1
+IG>ShMVVkI7D=lkPE=XRdZ2
 R1
 R2
-R16
-R17
-R18
-R9
 R3
+R4
+R5
+L0 124
+R6
 r1
 !s85 0
 31
-R4
-R19
-R20
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@keypad
 vKeypad_Encoder
 R0
 !i10b 1
-!s100 Qh4CQW[S9AKP1D<OK5LAf1
-I]dGf<f`ZA=@j^jTd_PiRZ2
+!s100 z>DIzcWYDHTgY;7^[^U9M3
+I`CofDQ@n:C82hAebi6^3j2
 R1
 R2
-R16
-R17
-R18
-L0 176
 R3
+R4
+R5
+L0 200
+R6
 r1
 !s85 0
 31
-R4
-R19
-R20
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@keypad_@encoder
 vKeypad_Top
 R0
 !i10b 1
-!s100 B;1;DzWEmJ0]bi3E^N8=80
-IUP2a5^5NIh8LbLfXFX39S1
+!s100 m6IkQoU>QZNia7a]<Ch560
+IXCRV4i^d5T_G`[1_NB8@e3
 R1
 R2
-R16
-R17
-R18
-L0 46
 R3
+R4
+R5
+L0 69
+R6
 r1
 !s85 0
 31
-R4
-R19
-R20
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@keypad_@top
 vMidterm_Lab_Top
-R10
+R0
 !i10b 1
-!s100 G=Klc_Po=`aiYFAR<]OKi2
-I3^E8G@[EKGZcj?I:CDKjf3
+!s100 lMn?WRF1k<me=O6Z85cc41
+IHG3gTb?P0OY:0TRULE0dc0
 R1
 R2
-w1461777863
-8Midterm_Lab_Top.v
-FMidterm_Lab_Top.v
-L0 4
 R3
+R4
+R5
+L0 1
+R6
 r1
 !s85 0
 31
-R13
-R14
-R15
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@midterm_@lab_@top
 vseven_seg_decoder
-R10
+R0
 !i10b 1
-!s100 b]8ge=8YV4?<EZo0K`m2e2
-I0jONckN?<XGlj@9BXo8Yc2
+!s100 4SeTU2dg`cmkI>Oa_gYVg2
+IM?HfaZidhoTc1GS3;nH7f0
 R1
 R2
-R8
-R11
-R12
-L0 38
 R3
+R4
+R5
+L0 418
+R6
 r1
 !s85 0
 31
-R13
-R14
-R15
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 vTest
 !s110 1461517239
 !i10b 1
@@ -323,7 +323,7 @@ w1461517237
 8C:\Users\user\Desktop\DigitalSystemLab\LabMidterm\test.v
 FC:\Users\user\Desktop\DigitalSystemLab\LabMidterm\test.v
 L0 3
-R3
+R6
 r1
 !s85 0
 31
@@ -332,10 +332,10 @@ r1
 !s90 -reportprogress|300|-work|work|-stats=none|C:\Users\user\Desktop\DigitalSystemLab\LabMidterm\test.v|
 !s101 -O0
 !i113 1
-R7
+R10
 n@test
 vtest_BCD
-R10
+Z11 !s110 1462007277
 !i10b 1
 !s100 czRn<I4_8E4Jn^ZXm1f483
 IG91UVfNM9FAC1GC`APF<D0
@@ -345,19 +345,19 @@ w1461259415
 8C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_BCD.v
 FC:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_BCD.v
 L0 2
-R3
+R6
 r1
 !s85 0
 31
-R13
+Z12 !s108 1462007277.000000
 !s107 UniversalBCD.v|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_BCD.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_BCD.v|
 !s101 -O0
 !i113 1
-R7
+R10
 ntest_@b@c@d
 vtest_fsm
-R0
+!s110 1462007278
 !i10b 1
 !s100 _@J[k]6jZcd5zVNUXNnFX2
 I@:gkBfC0C<OmdNi>8LGGM0
@@ -367,18 +367,18 @@ w1461747698
 8C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v
 FC:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v
 L0 4
-R3
+R6
 r1
 !s85 0
 31
-R4
-R5
-R6
+!s108 1462007278.000000
+!s107 keypad.v|calculation.v|UniversalBCD.v|fsm.v|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_fsm.v|
 !s101 -O0
 !i113 1
-R7
-vTest_keypad
 R10
+vTest_keypad
+R11
 !i10b 1
 !s100 C][Al<GBBA8WDZ9Fd3NjA1
 I:2zBHfG7S>iFfb2B?T2S23
@@ -388,41 +388,41 @@ w1461764434
 8C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_keypad.v
 FC:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_keypad.v
 L0 3
-R3
+R6
 r1
 !s85 0
 31
-R13
+R12
 !s107 keypad.v|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_keypad.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_keypad.v|
 !s101 -O0
 !i113 1
-R7
+R10
 n@test_keypad
 vTest_Top
-R10
+R0
 !i10b 1
 !s100 QhNddM=[1[U>:ND2cUceP2
 IKNkoY^CAJGO5=UPWF;VZz1
 R1
 R2
-w1461776210
+w1462007309
 8C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v
 FC:/Users/user/Desktop/DigitalSystemLab/LabMidterm/test_top_of_top.v
 L0 3
-R3
+R6
 r1
 !s85 0
 31
-R13
-R14
-R15
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@test_@top
 vTestDisplay
-R10
+R11
 !i10b 1
 !s100 1[<o64;n<Vm>2dG_nGkak0
 I^QTf5l6RH[UM9=RLJKg<`2
@@ -432,36 +432,36 @@ w1461484350
 8C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/TestDisplay.v
 FC:/Users/user/Desktop/DigitalSystemLab/LabMidterm/TestDisplay.v
 L0 3
-R3
+R6
 r1
 !s85 0
 31
-R13
+R12
 !s107 Display.v|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/TestDisplay.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/user/Desktop/DigitalSystemLab/LabMidterm/TestDisplay.v|
 !s101 -O0
 !i113 1
-R7
+R10
 n@test@display
 vUniversalBCD
 R0
 !i10b 1
-!s100 @9bA5U=D;F<n1DO`jgUS21
-ImDcF]ZGVJaJA<dNiWWZE@1
+!s100 YDWEHU7=7D0`@U@S6oNBl1
+I7`6f5ioO6>NaE<j[752jf1
 R1
 R2
-w1461475977
-8UniversalBCD.v
-FUniversalBCD.v
-L0 1
 R3
+R4
+R5
+L0 573
+R6
 r1
 !s85 0
 31
-R4
-R5
-R6
+R7
+R8
+R9
 !s101 -O0
 !i113 1
-R7
+R10
 n@universal@b@c@d

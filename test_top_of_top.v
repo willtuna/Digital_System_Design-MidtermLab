@@ -1,4 +1,4 @@
-`include "Midterm_Lab_Top.v"
+`include "Midterm_All.v"
 
 module Test_Top;
 

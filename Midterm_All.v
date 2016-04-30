@@ -115,6 +115,7 @@ module Freq_Keypad(clk, rst ,keypad_clk);
 
 
 
+
 endmodule
 
 
@@ -148,7 +149,7 @@ module  Keypad( clk, rst, in, row_sweep,press_pos, pressed );
 		always@(*)begin
 
 				if(in == col_current) begin
-				press_pos =  rst ? {8{1'b1}}  : {in,row_current};
+				press_pos =   {in,row_current};
 				pressed = 1'b1;
 				end
 
@@ -241,7 +242,6 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 	output reg [3:0] digit4,digit3,digit2,digit1;
 
 	reg [6:0] next_st, state;
-	wire [6:0] next_st_in;
     reg [7:0] A1,A0,B1,B0,OP;     // storage the in in differnet state
 	//wire Unpressed = &in;
 
@@ -275,7 +275,7 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 		if(rst)
 				state <= `state_ini ;
 		else
-				state <= next_st_in;
+				state <= next_st;
 
 	end
 //------------------------------------------------------------
@@ -283,13 +283,14 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 
 
 //---------------  Next State Combination Circuit----------------------------
-	always@( press_clk or  rst )begin
+	always@(posedge press_clk or  posedge rst )begin
 		if(rst) begin
 		A1 = 8'bz; 
 		A0 = 8'bz;
 		OP = 8'bz;
 		B1 = 8'bz;
 		B0 = 8'bz;
+		next_st = `state_ini;
 		end 
 
 
@@ -371,7 +372,7 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 		
 end
 
-		assign next_st_in = rst ? `state_ini : next_st;
+	//	assign next_st_in = rst ? `state_ini : next_st;
 
 
 endmodule
@@ -442,10 +443,9 @@ endmodule
 
 module frequency400(clk,rst ,out); // ok!!
 		input clk,rst ;
-		output out;
+		output reg out;
 		reg [20:0] next, count;
 			
-		reg out1;
 			
 
 		always@(posedge clk or posedge rst )
@@ -454,23 +454,25 @@ module frequency400(clk,rst ,out); // ok!!
 				else count <= next;
 		end
 
-		always@(posedge clk)begin
-				
+		always@(posedge clk or posedge rst)begin
+				if(rst)out = 1'b0;
+				else begin
 
-				if(count < 156250 )begin
-				out1 = 1'b0;
-				next = count +1;
+					if(count < 156250 )begin
+					out = 1'b0;
+					next = count +1;
+					end
+
+					else if (count < 312500)begin
+					out = 1'b1; 
+					next = count +1;
+					end
+
+					else 
+					next = 19'b0;
+
 				end
-
-				else if (count < 312500)begin
-				out1 = 1'b1; 
-				next = count +1;
-				end
-
-				else 
-				next = 19'b0;
 		end
-		assign out = rst ? 1'b0: out1;
 endmodule
 
 

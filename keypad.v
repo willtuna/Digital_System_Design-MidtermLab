@@ -43,6 +43,8 @@ as pressed is detected , we just fix the row output ...
 as pressed is released, row start shifting ........
 
   ******************************************************/
+`ifndef _keypad_v
+`define _keypad_v
 module Keypad_Top(clk, rst, col_in, row_out, enc_out, pressed);
 		input clk, rst;
 		input [3:0] col_in;
@@ -204,4 +206,4 @@ endmodule
 
 
 
-
+`endif

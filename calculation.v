@@ -1,3 +1,6 @@
+`ifndef _calculation_v
+`define _calculation_v
+
 `include "keypad.v" //  this included for the define words  op
 module calculation(rst,A1,A0,OP,B1,B0,out);
 		input [7:0]A1,A0,B1,B0,OP;
@@ -28,3 +31,4 @@ module calculation(rst,A1,A0,OP,B1,B0,out);
 		end
 
 endmodule
+`endif

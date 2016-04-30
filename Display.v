@@ -1,3 +1,5 @@
+`ifndef _Display_v
+`define _Display_v
 module Display (clk,rst,digit4,digit3,digit2,digit1,SevensegOut, VCC_select);  // tested
 		input clk, rst;
 		input [3:0]   digit4,digit3,digit2,digit1;
@@ -155,4 +157,4 @@ module DFF (clk,rst ,in, out);
 
 endmodule
 
-
+`endif
