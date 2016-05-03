@@ -74,7 +74,7 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 
 
 //---------------  Next State Combination Circuit----------------------------
-	always@(state or pressed or rst)begin
+	always@(state or in or rst)begin
 		if( (`encout_Clear == in) || rst) begin
 		A1 = 8'b0; 
 		A0 = 8'b0;
