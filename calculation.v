@@ -13,18 +13,19 @@ module calculation(rst,A1,A0,OP,B1,B0,out);
 		
 		always@(*)begin
 				A = rst ? 14'bz: A1 *10 +A0;
-				B = rst ? 14'bz :  { {6{1'b0}} ,B1 }* 10 + {  {6{1'b0}},B0}; // Both this two works ...
+				B = rst ? 14'bz :B1 *10+B0; // Both this two works ...
 		end
 
 		always@(*)begin
 				casez(OP)
-				`A_add:
+				`encout_ADD:
 						out = A + B;
-				`B_sub:
+				`encout_SUB:
 						out = A - B;
-				`f_mult:
+				`encout_Mult:
 						out = A * B;
-				//`D_ivid:
+				`encout_Div:
+						out = A / B;
 				default:
 						out = 14'bz;
 				endcase

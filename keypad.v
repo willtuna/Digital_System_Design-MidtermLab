@@ -32,10 +32,10 @@ Solution2 :
 
 As my row is select through 0111
       row 
-		0          p
-		1
-		1
-		1
+		0 F  E  D  C
+		1 B  3  6  9
+		1 A  2  5  8
+		1 0  1  4  7
 		 ------------  -VCC connected
           1  1  1  0
 
@@ -51,11 +51,10 @@ module Keypad_Top(clk, rst, col_in, row_out, enc_out, pressed);
 		output [3:0] row_out;
 		output [7:0] enc_out;
 		output pressed;
-		wire keypad_clk;
 		wire [7:0] keypad_code;  //   pattern {col[3:0], row[3:0]}
-		Freq_Keypad freq_for_keypad(clk, rst, keypad_clk);
 
-		Keypad keypad_sweep(keypad_clk,rst,col_in,row_out,keypad_code, pressed);
+
+		Keypad keypad_sweep(clk,rst,col_in,row_out,keypad_code, pressed);
 
 		Keypad_Encoder keypad_enc(keypad_code, enc_out);
 
@@ -109,8 +108,9 @@ module  Keypad( clk, rst, in, row_sweep,press_pos, pressed );
      	reg [3:0] row_next, row_current;
 
 		reg [7:0] press_pos;
-
-		always@(posedge clk or posedge rst)begin
+		wire freq4keypad;
+		Freq_Keypad freq_key(clk,rst,freq4keypad);
+		always@(posedge freq4keypad or posedge rst)begin
 				if(rst) col_current <= 4'b1000;
 				else if( in == col_current) ; // to stop the clock of col_current  *************
 				else col_current <=  col_next;
@@ -125,13 +125,19 @@ module  Keypad( clk, rst, in, row_sweep,press_pos, pressed );
 
 //   This is for press detection
 		always@(*)begin
-
-				if(in == col_current) begin
-				press_pos =  rst ? {8{1'b1}}  : {in,row_current};
+                if(rst)begin
+				press_pos = 8'b11111111;
+				pressed = 1'b0;
+				end
+				else if(in == col_current) begin
+				press_pos = {in,row_current};
 				pressed = 1'b1;
 				end
 
-				else pressed = 1'b0;
+				else begin
+				pressed = 1'b0;
+				press_pos = 8'b11111111;
+				end
 		end
 
 //  Because of our keypad configuration is {column[3:0], row[3:0] }
@@ -175,6 +181,15 @@ endmodule
 `define E_qual 8'b01001000
 `define D_ivid 8'b00101000
 
+`define encout_ADD    8'b11110001   
+`define encout_SUB    8'b11110010
+`define encout_Mult   8'b11110011
+`define encout_Div    8'b11110100
+`define encout_Equ    8'b11110101
+`define encout_Clear  8'b11110110
+
+
+
 module Keypad_Encoder(in,out);
 		input [7:0] in;
 		output reg [7:0] out;
@@ -191,12 +206,12 @@ module Keypad_Encoder(in,out);
 				`eight : out =  8'd8;
 				`nine  : out =  8'd9;
 
-				`A_add : out = `A_add;
-				`B_sub : out = `B_sub;
-				`f_mult: out = `f_mult;
-				`E_qual: out = `E_qual;
-				`D_ivid: out = `D_ivid;
-				`Cclear: out = `Cclear;
+				`A_add : out =  `encout_ADD;
+				`B_sub : out =  `encout_SUB;
+				`f_mult: out =  `encout_Mult;
+				`E_qual: out =  `encout_Equ;
+				`D_ivid: out =  `encout_Div;
+				`Cclear: out =  `encout_Clear;
 				
 				default : out = 8'b11111111;
 		endcase
