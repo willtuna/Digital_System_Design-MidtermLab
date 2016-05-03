@@ -41,12 +41,12 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
     UniversalBCD result_to_BCD(answer,ans_BCD);
 
 //----------------------------------------------------------------------
-  /*     reg press_clk;
+       reg press_clk;
 
        always@(clk)begin
 				if(pressed) press_clk = clk;
 	   end
-*/
+
 
 
 //--------------------- DFF -----------------------------------
