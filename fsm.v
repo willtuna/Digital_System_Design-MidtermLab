@@ -63,8 +63,8 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 
 
 //---------------  Next State Combination Circuit----------------------------
-	always@(posedge press_clk)begin
-		if( `encout_Clear == in ) begin
+	always@(posedge pressed or posedge rst)begin
+		if( (`encout_Clear == in)  or rst) begin
 		A1 = 8'bz; 
 		A0 = 8'bz;
 		OP = 8'bz;
@@ -82,8 +82,6 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 				if(pressed && (in[7]==1'b0)) begin
 				next_st =  `store_1stD1; 
 				A1  =  in; // assign to reg
-				//  show sevenseg  BCD(rst,in,out)
-				{digit4,digit3,digit2,digit1} = {4'd1,4'bz,4'bz,in[3:0]};
 				end
 				else begin
 				next_st = `state_ini;
@@ -96,7 +94,6 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 				next_st = `store_1stD0;
 				A0 = in;
 				//  show_sevenseg BCD
-				{digit4,digit3,digit2,digit1} = {4'd2,4'bz,A1[3:0],in[3:0]};
 				end
 
 				else begin
@@ -112,7 +109,6 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 						if( in[7:4] == 4'b1111 )begin
 						next_st = `store_op;
 						OP = in;
-						// No need to show
 						end
 						else next_st = `store_1stD0;
 				end
@@ -126,7 +122,6 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 				next_st= `store_2ndD1;
 				B1 =  in;
 				//show
-				{digit4,digit3,digit2,digit1} = {4'd3,4'bz,4'bz,in[3:0]};
 				end
 
 				else begin
@@ -139,8 +134,6 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 				if(pressed && (in[7]==1'b0)) begin
 				next_st = `store_2ndD0;
 				B0 = in;					
-				//show
-				{digit4,digit3,digit2,digit1} = {4'd4,4'bz,B1[3:0],in[3:0]};
 				end
 
 				else begin

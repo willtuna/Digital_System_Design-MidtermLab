@@ -12,8 +12,8 @@ module calculation(rst,A1,A0,OP,B1,B0,out);
 
 		
 		always@(*)begin
-				A = rst ? 14'bz: A1 *10 +A0;
-				B = rst ? 14'bz :B1 *10+B0; // Both this two works ...
+				A = rst ? 14'b0 : (A1 *10 +A0);
+				B = rst ? 14'b0 : (B1 *10+B0); // Both this two works ...
 		end
 
 		always@(*)begin
