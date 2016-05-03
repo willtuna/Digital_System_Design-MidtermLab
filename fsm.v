@@ -63,7 +63,7 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 
 
 //---------------  Next State Combination Circuit----------------------------
-	always@( pressed)begin
+	always@(in)begin
 		if( `encout_Clear == in ) begin
 		A1 = 8'bz; 
 		A0 = 8'bz;
