@@ -63,7 +63,7 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 
 
 //---------------  Next State Combination Circuit----------------------------
-	always@(in)begin
+	always@(posedge press_clk)begin
 		if( `encout_Clear == in ) begin
 		A1 = 8'bz; 
 		A0 = 8'bz;
@@ -164,9 +164,11 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 				{digit4,digit3,digit2,digit1} = ans_BCD;
 				// show
 		   end
-           default:
+           default:  begin
 				  	{digit4,digit3,digit2,digit1} = {4'd9,4'd9,4'd9,4'd9};
+		   end
 
+		   
 		   endcase
 		
 		end
