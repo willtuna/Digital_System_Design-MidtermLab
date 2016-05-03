@@ -77,12 +77,12 @@ module Freq_Keypad(clk, rst ,keypad_clk);
 				keypad_clk = 1'b0;
 				end
 
-		else if(i<312500)begin
+		else if(i<625000)begin
 				keypad_clk = 1'b0;
 				i = i +1;
 				end
 
-		else if(i<625000)begin
+		else if(i<1250000)begin
 				keypad_clk = 1'b1;
 				i = i +1;		
 				end
