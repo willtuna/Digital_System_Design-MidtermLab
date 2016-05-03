@@ -194,7 +194,7 @@ module Keypad_Encoder(in,out);
 		input [7:0] in;
 		output reg [7:0] out;
 		always@(*) begin
-				casez(in)
+				case(in)
 				`zero  : out =  8'b0;
 				`one   : out =  8'd1;
 				`two   : out =  8'd2;

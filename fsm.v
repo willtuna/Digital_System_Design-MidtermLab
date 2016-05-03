@@ -27,26 +27,37 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 
 
 // ----------  Turn into wrie for CL of calculation module  ------
+	reg [7:0] ad1,ad0,bd1,bd0,opreg;
+
     wire [7:0] a1,a0,b1,b0,op;
-    assign   a1=A1 ;
-    assign   a0=A0 ;  
-    assign	 op=OP ;
-    assign   b1=B1 ;
-    assign   b0=B0 ;
+    assign   a1=ad1 ;
+    assign   a0=ad0 ;  
+    assign	 op=opreg ;
+    assign   b1=bd1;
+    assign   b0=bd0 ;
 //------------------------------------------
 
-    wire [13:0] answer;
-	wire [15:0] ans_BCD;
-	calculation cal(rst,a1,a0,op,b1,b0,answer);
-    UniversalBCD result_to_BCD(answer,ans_BCD);
-
+  
 //----------------------------------------------------------------------
        reg press_clk;
 
        always@(clk)begin
 				if(pressed) press_clk = clk;
 	   end
+// ------------------- FF structure
+     always@(posedge press_clk or posedge rst)begin
+				if(in == `encout_Clear) begin
+				{ad1,ad0,opreg,bd1,bd0} <=  24'b0 ;
+				end
+				else
+				{ad1,ad0,opreg,bd1,bd0} <= rst ? 24'b0 : {A1,A0,OP,B1,B0} ;
+     end
 
+//--------------------calculation---------------------
+    wire [13:0] answer;
+	wire [15:0] ans_BCD;
+	calculation cal(rst,a1,a0,op,b1,b0,answer);
+    UniversalBCD result_to_BCD(answer,ans_BCD);
 
 
 //--------------------- DFF -----------------------------------
@@ -54,22 +65,22 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 		if(rst)begin
 				state <= `state_ini ;
 				end
-		else
+		else begin
 				state <= next_st;
-
+		end
 	end
 //------------------------------------------------------------
 
 
 
 //---------------  Next State Combination Circuit----------------------------
-	always@(posedge pressed or posedge rst)begin
+	always@(state or pressed or rst)begin
 		if( (`encout_Clear == in) || rst) begin
-		A1 = 8'bz; 
-		A0 = 8'bz;
-		OP = 8'bz;
-		B1 = 8'bz;
-		B0 = 8'bz;
+		A1 = 8'b0; 
+		A0 = 8'b0;
+		OP = 8'b0;
+		B1 = 8'b0;
+		B0 = 8'b0;
 		next_st = `state_ini;
 		{digit4,digit3,digit2,digit1} = {4'd0,4'bz,4'bz,4'bz};
 		end 
@@ -77,88 +88,66 @@ module Calculator_fsm(clk,rst,in,pressed,digit4,digit3,digit2,digit1);
 
 		else begin
 
-		casez(state)
+		case(state)
 		  `state_ini : begin
-				if(pressed && (in[7]==1'b0)) begin
+				if(pressed && (in[7:4]==4'b0000)) begin
 				next_st =  `store_1stD1; 
 				A1  =  in; // assign to reg
 				end
-				else begin
-				next_st = `state_ini;
-				{digit4,digit3,digit2,digit1} = {4'd0,4'bz,4'bz,4'bz};
-				end
+				else
+				{digit4,digit3,digit2,digit1} = {4'd0,4'bz,4'bz,4'bz};			
 		  end
 
 		   `store_1stD1: begin
-				if(pressed && (in[7]==1'b0) ) begin
+				if(pressed && (in[7:4]==4'b0000) ) begin
 				next_st = `store_1stD0;
 				A0 = in;
-				//  show_sevenseg BCD
 				end
-
-				else begin
-				next_st = `store_1stD1;
+				else
 				{digit4,digit3,digit2,digit1} = {4'd1,4'bz,4'bz,A1[3:0]};
-				end
-
 		  end
 
 		   `store_1stD0: begin  //   there is no dummy avoidance !!!!!!
-				if(pressed) begin
-
-						if( in[7:4] == 4'b1111 )begin
+				if(pressed && (in[7:4]== 4'b1111)) begin
 						next_st = `store_op;
 						OP = in;
-						end
-						else next_st = `store_1stD0;
 				end
-				else begin 
-				next_st = `store_1stD0;
+				else
 				{digit4,digit3,digit2,digit1} = {4'd2,4'bz,A1[3:0],A0[3:0]};
-				end
 		   end
 		   `store_op   : begin
-				if(pressed && (in[7]==1'b0) ) begin
+				if(pressed && (in[7:4]==4'b0000) ) begin
 				next_st= `store_2ndD1;
 				B1 =  in;
-				//show
 				end
-
-				else begin
-				next_st = `store_op;
+				else
 				{digit4,digit3,digit2,digit1} = {4'd3,4'bz,4'bz,4'bz};
-				end
 		  end
 				
 		   `store_2ndD1: begin
-				if(pressed && (in[7]==1'b0)) begin
+				if(pressed && (in[7:4]==4'b0000)) begin
 				next_st = `store_2ndD0;
 				B0 = in;					
 				end
-
-				else begin
-				next_st = `store_2ndD1;
+				else
 				{digit4,digit3,digit2,digit1} = {4'd3,4'bz,4'bz,B1[3:0]};
-				end
 		   end
 
 		   `store_2ndD0: begin
 				if(pressed) begin
 				next_st = (in == `encout_Equ ) ? `EqualPressed: `store_2ndD0;
-				//no need to show
 				end
-				else begin
-				next_st = `store_2ndD0;
+				else
 				{digit4,digit3,digit2,digit1} = {4'd4,4'bz,B1[3:0],B0[3:0]};
-				end
 		   end
 		   `EqualPressed: begin
 				//  combinational logic to calculate the result
 				{digit4,digit3,digit2,digit1} = ans_BCD;
-				// show
 		   end
            default:  begin
-				  	{digit4,digit3,digit2,digit1} = {4'd9,4'd9,4'd9,4'd9};
+		            next_st = `state_ini;
+				  	{digit4,digit3,digit2,digit1} = {4'd9,4'd4,4'd0,4'd4};
+					
 		   end
 
 		   
