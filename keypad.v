@@ -71,26 +71,26 @@ module Freq_Keypad(clk, rst ,keypad_clk);
 
 		integer i =0 ;
 
-		always@(posedge clk or posedge rst)begin
+		always@(posedge clk or posedge rst )begin
 		if(rst) begin
 				i =0;
 				keypad_clk = 1'b0;
 				end
 
-		else if(i<625000)begin
+		else if(i<312500)begin
 				keypad_clk = 1'b0;
 				i = i +1;
-				end
+		end
 
-		else if(i<1250000)begin
+		else if(i<625000)begin
 				keypad_clk = 1'b1;
 				i = i +1;		
-				end
+        end
 
 		else i = 0;
 
 		end
-
+		
 
 
 endmodule
@@ -104,61 +104,64 @@ module  Keypad( clk, rst, in, row_sweep,press_pos, pressed );
 		output [3:0] row_sweep; // updated 
 		output [7:0]press_pos;
 		output reg pressed;
-		reg [3:0] col_next, col_current;
      	reg [3:0] row_next, row_current;
 
 		reg [7:0] press_pos;
 		wire freq4keypad;
+		reg enable;
+
+
+
 		Freq_Keypad freq_key(clk,rst,freq4keypad);
-		always@(posedge freq4keypad or posedge rst)begin
-				if(rst) col_current <= 4'b1000;
-				else if( in == col_current) ; // to stop the clock of col_current  *************
-				else col_current <=  col_next;
+
+//---------------- Enable Logic --- Lock the frequency -------------
+		always@(*)begin
+				if( in[3]|in[2]|in[1]|in[0] ) enable = 1'b0 ;
+				// to stop the clock  *************
+				else enable = 1'b1;
+		end
+
+		always@(*)begin
+				if( in[3]|in[2]|in[1]|in[0] ) pressed = 1'b1 ;
+				// to stop the clock  *************
+				else pressed = 1'b0;
 		end
 
 
+
+
+
+
+// ------------------- Row Shifting -----------------------
+		always@(posedge freq4keypad or posedge rst)begin
+				if(rst) row_current <= 4'b1000;
+				else row_current <= row_next;
+		end
+
+		always@(row_current)begin
+				if(enable)
+				row_next = {row_current[0],row_current[3:1]};
+				else
+				row_next = row_current;
+		end
 		
 
+        assign row_sweep = row_current;
 
 
 
-
-//   This is for press detection
-		always@(*)begin
-                if(rst)begin
-				press_pos = 8'b11111111;
-				pressed = 1'b0;
-				end
-				else if(in == col_current) begin
-				press_pos = {in,row_current};
-				pressed = 1'b1;
+//   This is for press_pos detection
+		always@(posedge freq4keypad)begin
+				if( in[3]|in[2]|in[1]|in[0] ) begin
+				press_pos <= {in,row_current};
 				end
 
-				else begin
-				pressed = 1'b0;
-				press_pos = 8'b11111111;
-				end
+				else press_pos <= 8'b11111111;
 		end
 
 //  Because of our keypad configuration is {column[3:0], row[3:0] }
 
 
-		always@(col_current)begin//  as col_current_chaged !!! execute 
-				col_next = {col_current[0] , col_current[3:1]} ;// shift right
-		end
-
-
-
-		always@(negedge col_current[3] or posedge rst)begin
-				if(rst) row_current<= 4'b1000;
-				else row_current <= row_next;
-		end
-
-		always@(row_current)begin
-				row_next = {row_current[0], row_current[3:1]} ;
-		end
-
-		assign row_sweep = row_current;
 
 
 endmodule
@@ -217,8 +220,20 @@ module Keypad_Encoder(in,out);
 		endcase
 		end
 endmodule
+/*
+module debounce_counter(clk,start,in,good);
+input start,clk;
+input [3:0] in;
+output good;
+
+reg [5:0] count;
+		always@(posedge clk or posedge start)
+				if(start)count = 6'b0;
 
 
 
+endmodule
+*/
 
 `endif
+
